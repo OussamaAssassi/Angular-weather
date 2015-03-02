@@ -4,24 +4,16 @@
         <title>Angular Weather</title>
     </head>
     <body ng-controller="MainCtrl">
+       
         <div>
-            <input type="text" ng-model="city" >
-            <button ng-click="getWeatherByCity(city)">ok</button>
+            <input type="text" ng-model="search" >
+            <button ng-click="getWeatherByCity()">ok</button>
         </div>
-        <table>
-           <thead>
-               <tr>
-                   <th>Lieu</th>
-               </tr>
-           </thead>
-           <tbody>
-               <tr ng-repeat="city in cities">
-                   <td>{{city.city}}, {{city.country_name}} {{city.state}}</td>
-               </tr>
-           </tbody>
-        </table>
+        
+        <div ng-view></div>
         
         <script src="vendors/angular.min.js"></script>
+        <script src="vendors/angular-route.min.js"></script>
         <script src="js/app.js"></script>
         <script src="js/controllers/MainCtrl.js"></script>
         <script src="js/services/weatherApiService.js"></script>
