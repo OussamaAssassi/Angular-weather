@@ -8,15 +8,23 @@
             <input type="text" ng-model="city" >
             <button ng-click="getWeatherByCity(city)">ok</button>
         </div>
-        <div>
-            <h1>{{cityWeather.name}}</h1>
-            <p>{{cityWeather.main.temp | round}}</p>
-        </div>
+        <table>
+           <thead>
+               <tr>
+                   <th>Lieu</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr ng-repeat="city in cities">
+                   <td>{{city.city}}, {{city.country_name}} {{city.state}}</td>
+               </tr>
+           </tbody>
+        </table>
         
         <script src="vendors/angular.min.js"></script>
         <script src="js/app.js"></script>
         <script src="js/controllers/MainCtrl.js"></script>
-        <script src="js/services/openWeatherMapService.js"></script>
+        <script src="js/services/weatherApiService.js"></script>
         <script src="js/filters/roundFilter.js"></script>
     </body>
 </html>

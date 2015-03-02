@@ -1,9 +1,9 @@
-app.controller('MainCtrl', ['$scope','openWeatherMapService', function($scope, openWeatherMapService){
+app.controller('MainCtrl', ['$scope','weatherApiService', function($scope, weatherApiService){
     
     $scope.getWeatherByCity = function(city){
     
-        openWeatherMapService.getCityWeather(city).then(function(data){
-           $scope.cityWeather = data;
+        weatherApiService.getCityWeather(city).then(function(data){
+           $scope.cities = data.response.results;
             console.log(data);
         });
     }

@@ -1,10 +1,10 @@
-app.service('openWeatherMapService', ['$http', '$q', function($http, $q){
+app.service('weatherApiService', ['$http', '$q', function($http, $q){
     
    var defered = $q.defer();
     
     var getCityWeather = function(city) {
     
-        $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=d9b8499a111a4db43b57133624b47a80&lang=fr&units=metric')
+        $http.get('http://api.wunderground.com/api/ce5cfc19364396e3/conditions/q/'+ city +'.json')
             .success(function(data){
                 defered.resolve(data);
             })
