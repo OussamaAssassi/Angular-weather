@@ -3,11 +3,11 @@
         <meta charset="utf-8">
         <title>Angular Weather</title>
     </head>
-    <body ng-controller="MainCtrl">
+    <body ng-controller="MainCtrl as main">
        
         <div>
-            <input type="text" ng-model="search" enter-key="getWeatherByCity(search)">
-            <button ng-click="getWeatherByCity(search)">ok</button>
+            <input type="text" ng-model="search" enter-key="main.getWeatherByCity(search)">
+            <button ng-click="main.getWeatherByCity(search)">ok</button>
         </div>
         
         <div ng-view></div>
