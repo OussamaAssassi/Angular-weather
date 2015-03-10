@@ -1,34 +1,35 @@
-app.controller('MainCtrl', ['$scope', '$location', '$timeout','weatherApiService', function($scope, $location, $timeout, weatherApiService){
+app.controller('MainCtrl', ['$location', '$timeout','weatherApiService', function($location, $timeout, weatherApiService){
+    var self = this;
+    self.getWeatherByCity = function(searchValue){
 
-    $scope.getWeatherByCity = function(searchValue){
-
+        
         weatherApiService.getCityWeather(searchValue).then(function(data){
             
             if(data.response.results)
             {
-                $scope.cities = data.response.results;
-                console.log($scope.cities);
+                self.cities = data.response.results;
+                console.log(self.cities);
                 $location.path("/cities");          
             }
             else if(data.current_observation)
             {
-                $scope.city = data.current_observation;
-                console.log($scope.city);
+                self.city = data.current_observation;
+                console.log(self.city);
                 $location.path("/" + data.current_observation.display_location.city );
             };
         });
         
     };
     
-    $scope.getCityWeatherDetails= function(searchValue,event){
+    self.getCityWeatherDetails= function(searchValue,event){
         
         event.preventDefault();
         search = 'zmw:' + searchValue;
         
         weatherApiService.getCityWeather(search).then(function(data){
             
-            $scope.city = data.current_observation;
-            console.log($scope.city);
+            self.city = data.current_observation;
+            console.log(self.city);
             $location.path("/" + data.current_observation.display_location.city );
         });
     };
