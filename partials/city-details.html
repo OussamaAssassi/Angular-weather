@@ -1,7 +1,7 @@
 <img ng-src="http://icons.wxug.com/i/c/k/{{city.icon}}.gif" alt="">
 <p>{{city.weather}}</p>
 <h1>{{city.display_location.city}}</h1>
-<h2>{{city.temp_c}} °C</h2>
+<h2>{{city.temp_c | round }} °C</h2>
 <p>Humidité : {{city.relative_humidity}}</p>
 <p>Vent : {{city.wind_kph}} km/h</p>
 <p>Visibilité : {{city.visibility_km}} km</p>

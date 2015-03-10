@@ -6,7 +6,7 @@
    </thead>
    <tbody>
        <tr ng-repeat="city in cities">
-           <td>{{city.city}}, {{city.country_name}} {{city.state}}</td>
+           <td><a ng-href="#" ng-click="getCityWeatherDetails(city.zmw,$event)">{{city.city}}, {{city.country_name}} {{city.state}}</a></td>
        </tr>
    </tbody>
 </table>
